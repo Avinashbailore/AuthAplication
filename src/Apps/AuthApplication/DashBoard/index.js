@@ -2,17 +2,19 @@ import React from 'react';
 import { useAuth } from '../../../Contexts/AuthContext';
 import { auth } from '../../../FireBase/firebase.js';
 import { Card, Button, Form, Row, Col, Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
-
-export default function DashBoard() {
+const DashBoard = () => {
 
     const { currentUser } = useAuth();
     console.log(currentUser);
 
-    const logOutUser = () => {
-        auth.signOut();
+    const history = useHistory();
+
+    const logOutUser = async () => {
+        await auth.signOut();
+        history.push('/login');
     }
 
     return (
@@ -36,3 +38,5 @@ export default function DashBoard() {
         </div>
     )
 }
+
+export default DashBoard
