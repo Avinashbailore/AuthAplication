@@ -3,6 +3,7 @@ import SignUp from './SignUp/index';
 import DashBoard from './DashBoard/index';
 import Login from './Login/index';
 import ForgotPassword from './ForgotPassword/index';
+import FireGram from './FireGram/index';
 import UpdateProfile from './UpdateProfile/index';
 import '../../Theme/styles.scss';
 import { Container } from 'react-bootstrap'
@@ -21,6 +22,7 @@ const AuthApplication = () => {
                     <Switch>
                         <PrivateRoute exact path="/" component={DashBoard} />
                         <PrivateRoute path="/update-profile" component={UpdateProfile} />
+                        <Route path="/fire-gram" component={FireGram} />
                         <Route path="/signup" component={SignUp} />
                         <Route path="/login" component={Login} />
                         <Route path="/forgot-password" component={ForgotPassword} />
